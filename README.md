@@ -18,7 +18,7 @@ pip install -e ".[all]"
 ## Fine-tune Speech Representation Models with Speech-FT
 Speech-FT consists of two elements: **stable fine-tuning** and **weight-space interpolation**.
 
-### Stable Fine-Tuning 
+### Stable Fine-Tuning (Stable-FT)
 To perform stable fine-tuning of HuBERT on ASR with TED-LIUM, run the following command: 
 ```
 python3 S3PRL_ROOT/s3prl/preprocess/preprocess_ted.py -o S3PRL_ROOT/s3prl/data/ted
