@@ -1,0 +1,70 @@
+runner:
+  total_steps: 50000
+  gradient_clipping: 1
+  gradient_accumulate_steps: 1
+  log_step: 100
+  eval_step: 2000
+  save_step: 2000
+  max_keep: 1
+  eval_dataloaders:
+    - dev
+
+optimizer:
+  name: TorchOptim
+  torch_optim_name: Adam
+  lr: 1.0e-4
+
+# to disable learning rate scheduling
+scheduler:
+  name: stable_finetuning_schedule
+
+# Frozen upstream model before finetune_steps
+grad_scheduler:
+  finetune_steps: 0.1 # Ratio respect to total steps
+
+# comment the whole scheduler config block
+# to disable learning rate scheduling
+# scheduler:
+#   name: linear_schedule_with_warmup
+#   num_warmup_steps: 1400
+# comment the whole specaug config block
+# to disable specaug on representation
+
+specaug:
+  adaptive: false
+  adaptive_number_ratio: 0.04
+  adaptive_size_ratio: 0.04
+  max_n_time_masks: 20
+  apply_time_warp: true
+  apply_time_mask: true
+  apply_freq_mask: true
+  time_warp_window: 5
+  time_mask_width_range: [0, 40]
+  freq_mask_width_range: [0, 50]
+  num_freq_mask: 4
+  num_time_mask: 2
+
+downstream_expert:
+  datarc:
+    num_workers: 12
+    train_batch_size: 32
+    eval_batch_size: 1
+    bucket_file: './data/ted/len_for_bucket'
+
+    zero_infinity: True
+
+  modelrc:  # identical to minisuperb ASR downstream
+    project_dim: 256
+    select: RNNs
+    Wav2Letter:
+      total_rate: 320
+    RNNs:
+      total_rate: -1
+      module: 'LSTM'                        # 'LSTM'/'GRU'
+      bidirection: True
+      dim: [256, 256, 256]
+      dropout: [0.2, 0.2, 0.2]
+      layer_norm: [False, False, False]
+      proj: [False, False, False]              # Linear projection + Tanh after each rnn layer
+      sample_rate: [1, 1, 1]
+      sample_style: 'concat'                  # 'drop'/'concat

@@ -1,0 +1,9 @@
+{
+  'merge_method': 'linear',
+  'alpha': 0.25,
+  'base_model_name': 'hubert', 
+  'finetune_model_paths': [
+    '/home/nervjack2/Speech-FT/s3prl/s3prl/result/downstream/asr_ted_finetune_asr_ted_hubert/dev-best.ckpt'
+  ],
+  'output_dir': '/home/nervjack2/Speech-FT/' 
+}
