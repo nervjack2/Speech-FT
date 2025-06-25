@@ -41,4 +41,4 @@ python3 merge_model.py -c merge_config/ted_asr/hubert_alpha_0.25.yaml
 When fine-tuning HuBERT on ASR with TED-LIUM, Speech-FT reduces the PER from 5.17% to 3.94%, lowers the WER from 6.38% to 5.75%, and improves the SID accuracy from 81.86% to 84.11%. The full evaluation on the SUPERB benchmark is shown below:  
 ![Performance of HuBERT fine-tuning with Speech-FT on SUPERB](asset/hubert-superb.png)
 
-Download the model checkpoint fine-tuned with Speech-FT on ASR with TED-LIUM [here](#).
+Download the model checkpoint fine-tuned with Speech-FT on ASR with TED-LIUM [here](https://drive.google.com/file/d/13yiv5-6SY4dIMarCidJ0FKBPcID1iKG_/view?usp=sharing).
