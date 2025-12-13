@@ -1,11 +1,11 @@
 # 🚀 Speech-FT
-This is the official repository of the paper:
+This is the official repository of the paper published in **IEEE Transactions on Audio, Speech, and Language Processing (TASLP)**:
 [Speech-FT: Merging Pre-trained and Fine-Tuned Speech Representation Models for Cross-Task Generalization](https://ieeexplore.ieee.org/document/11263888). 
 
 - **Speech-FT is a supervised fine-tuning method designed to enhance pre-trained speech encoders**. 
 - It effectively addresses the challenge of fine-tuning speech encoders while preserving cross-task generalization ability. 
-- For example, when fine-tuning HuBERT on ASR, Speech-FT reduces the phoneme error rate (PER) from 5.17% to 3.94% and improves speaker identification (SID) accuracy from 81.86% to 84.11%. - **Overall, Speech-FT provides a simple yet effective solution for improving pre-trained speech encoders**.
 
+## 🧐 Methodology
 ![An overview of Speech-FT](asset/overview.png)
 
 ## 🎯 Results of Speech-FT
@@ -22,34 +22,27 @@ Model checkpoints when fine-tuning with ASR on TED-LIUM3
 | HuBERT + Speech-FT | [link](https://drive.google.com/file/d/13yiv5-6SY4dIMarCidJ0FKBPcID1iKG_/view?usp=sharing) |
 | wav2vec 2.0 + Speech-FT | [link](https://drive.google.com/file/d/1d8412DKVFeS8vRzE9qL-gGz4IFs2EjQ9/view?usp=sharing) |
 
-## ⚙️ Installation
-This codebase is built upon [s3prl](https://github.com/s3prl/s3prl/tree/main).  
-Please clone the s3prl repository into `S3PRL_ROOT` and copy the modified files using:
-```
-cp -r s3prl_modified/* S3PRL_ROOT/s3prl/
-```
-Then, install s3prl manually (python=3.9 is recommended):
-```
-cd S3PRL_ROOT
-pip install -e ".[all]"
-```
-## 🔥 Enhance Speech Encoders with Speech-FT
-Speech-FT consists of two elements: **stable fine-tuning** and **weight-space interpolation**.
+## ⚙️ Quick Start  
+Extracting speech features with our encoders!
+**🚧 Work in progress...**
 
-### Stable Fine-Tuning
-To perform stable fine-tuning of HuBERT on ASR with TED-LIUM, run the following command: 
-```
-python3 S3PRL_ROOT/s3prl/preprocess/preprocess_ted.py -o S3PRL_ROOT/s3prl/data/ted
-bash finetune_s3prl_model.sh python3 hubert asr_ted train asr_ted_hubert S3PRL_ROOT/s3prl/downstream/asr_ted/config_finetune.yaml S3PRL_ROOT
-```
-Note that you should use an absolute path instead of a relative path.
+## 🔥 Fine-tuning & Merging 
+See [docs/train.md](docs/train.md) for more details.
 
-### Weight-Space Interpolation
-Modify the `finetune_model_paths` and `output_dir` entries in the merging config file (e.g., `merge_config/ted_asr/hubert_alpha_0.25.yaml`).  
-- `finetune_model_paths`: fine-tuned model path generated from stable fine-tuning  
-- `output_dir`: the directory to save the interpolated model
+## 📚 Citation
 
-Then run:
 ```
-python3 merge_model.py -c merge_config/ted_asr/hubert_alpha_0.25.yaml
+@article{lin2025speechft,
+  author={Lin, Tzu-Quan and Huang, Wei-Ping and Tang, Hao and Lee, Hung-yi},
+  journal={IEEE Transactions on Audio, Speech and Language Processing}, 
+  title={Speech-FT: Merging Pre-trained And Fine-Tuned Speech Representation Models For Cross-Task Generalization}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-15},
+  doi={10.1109/TASLPRO.2025.3635827}
+}
 ```
+
+## 👥 Contributors
+Tzu-Quan Lin, Wei-Ping Huang, Hao Tang, Hung-yi Lee
