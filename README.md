@@ -2,13 +2,15 @@
 This is the official repository of the paper:
 [Speech-FT: Merging Pre-trained and Fine-Tuned Speech Representation Models for Cross-Task Generalization](https://ieeexplore.ieee.org/document/11263888). 
 
-**Speech-FT is a supervised fine-tuning method designed to enhance pre-trained speech encoders**. It effectively addresses the challenge of fine-tuning speech encoders while preserving cross-task generalization ability. For example, when fine-tuning HuBERT on ASR, Speech-FT reduces the phoneme error rate (PER) from 5.17% to 3.94%, lowers the word error rate (WER) from 6.38% to 5.75%, and improves speaker identification (SID) accuracy from 81.86% to 84.11%. **Overall, Speech-FT provides a simple yet effective solution for improving pre-trained speech encoders**.
+- **Speech-FT is a supervised fine-tuning method designed to enhance pre-trained speech encoders**. 
+- It effectively addresses the challenge of fine-tuning speech encoders while preserving cross-task generalization ability. 
+- For example, when fine-tuning HuBERT on ASR, Speech-FT reduces the phoneme error rate (PER) from 5.17% to 3.94% and improves speaker identification (SID) accuracy from 81.86% to 84.11%. - **Overall, Speech-FT provides a simple yet effective solution for improving pre-trained speech encoders**.
 
 ![An overview of Speech-FT](asset/overview.png)
 
 ## 🎯 Results of Speech-FT
 
-When fine-tuning HuBERT on ASR with TED-LIUM, Speech-FT reduces the PER from 5.17% to 3.94%, lowers the WER from 6.38% to 5.75%, and improves the SID accuracy from 81.86% to 84.11%.
+When fine-tuning HuBERT on ASR with TED-LIUM, Speech-FT reduces the PER from 5.17% to 3.94% and improves the SID accuracy from 81.86% to 84.11%.
 ![Performance of HuBERT fine-tuning with Speech-FT on SUPERB](asset/performance.png)
 Please see [the paper](https://ieeexplore.ieee.org/document/11263888) for full SUPERB evaluation results. 
 
