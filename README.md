@@ -27,7 +27,7 @@ Model checkpoints when fine-tuning with ASR on TED-LIUM3
 Extracting speech features with our encoders!
 
 ### Installation
-This fine-tuning codebase is built upon [s3prl](https://github.com/s3prl/s3prl/tree/main).  
+The codebase is built upon [s3prl](https://github.com/s3prl/s3prl/tree/main).  
 Please clone the s3prl repository into `S3PRL_ROOT` and copy the modified files using:
 ```
 cp -r s3prl_modified/* S3PRL_ROOT/s3prl/
@@ -48,8 +48,8 @@ gdown --id 1d8412DKVFeS8vRzE9qL-gGz4IFs2EjQ9
 ```
 python3 forward.py CKPT_PATH UPSTREAM_NAME
 ```
-CKPT_PATH: checkpoint path 
-UPSTREAM_NAME: Choose from 'hubert' or 'wav2vec2'
+- CKPT_PATH: checkpoint path 
+- UPSTREAM_NAME: Choose from 'hubert' or 'wav2vec2'
 
 ## 🔥 Fine-tuning & Merging 
 See [docs/train.md](docs/train.md) for more details.
