@@ -1,18 +1,5 @@
 # 🔥 Fine-tuning & Merging
 
-## ⚙️ Installation
-This fine-tuning codebase is built upon [s3prl](https://github.com/s3prl/s3prl/tree/main).  
-Please clone the s3prl repository into `S3PRL_ROOT` and copy the modified files using:
-```
-cp -r s3prl_modified/* S3PRL_ROOT/s3prl/
-```
-Then, install s3prl manually (python=3.9 is recommended):
-```
-cd S3PRL_ROOT
-pip install -e ".[all]"
-```
-
-## 🔨 Commands
 Speech-FT consists of two elements: **stable fine-tuning** and **weight-space interpolation**.
 
 ### Stable Fine-Tuning

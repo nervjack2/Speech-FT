@@ -24,7 +24,7 @@ def load_and_convert_fairseq_ckpt(fairseq_source: str, output_path: str = None):
 
 
 def load_converted_model(ckpt: str):
-    ckpt_state = torch.load(ckpt, map_location="cpu")
+    ckpt_state = torch.load(ckpt, map_location="cpu", weights_only=False)
 
     for required_key in ["task_cfg", "model_cfg", "model_weight"]:
         if required_key not in ckpt_state:
