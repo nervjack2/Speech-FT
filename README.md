@@ -57,16 +57,16 @@ See [docs/train.md](docs/train.md) for more details.
 ## 📚 Citation
 
 ```
-@article{lin2025speechft,
+@article{lin2026speechft,
   author={Lin, Tzu-Quan and Huang, Wei-Ping and Tang, Hao and Lee, Hung-yi},
   journal={IEEE Transactions on Audio, Speech and Language Processing}, 
-  title={Speech-FT: Merging Pre-trained And Fine-Tuned Speech Representation Models For Cross-Task Generalization}, 
-  year={2025},
-  volume={},
-  number={},
-  pages={1-15},
+  title={{Speech-FT: Merging Pre-Trained and Fine-Tuned Speech Representation Models for Cross-Task Generalization}}, 
+  year={2026},
+  volume={34},
+  pages={70-83},
   doi={10.1109/TASLPRO.2025.3635827}
 }
+
 ```
 
 ## 👥 Contributors
