@@ -9,8 +9,10 @@ upstream_name = sys.argv[2]
 assert upstream_name in ['hubert', 'wav2vec2'], "Upstream should be either HuBERT or wav2vec 2.0."
 if upstream_name == 'hubert':
     from s3prl.upstream.hubert.convert import load_converted_model
-else:
+elif upstream_name == 'wav2vec2':
     from s3prl.upstream.wav2vec2.convert import load_converted_model
+else:
+    raise NotImplementedError
 
 model, task_cfg = load_converted_model(ckpt_pth)
 model.feature_grad_mult = 0.0
@@ -19,7 +21,7 @@ model.eval()
 batch_size = 4
 padded_wav_len = 16000
 padded_wav = torch.rand(batch_size, padded_wav_len)
-print(task_cfg.normalize)
+
 if task_cfg.normalize:
     padded_wav = F.layer_norm(padded_wav, padded_wav.shape)
 # Padding mask need to be changed according to your situation
@@ -33,7 +35,9 @@ with torch.no_grad():
     )
 if upstream_name == 'hubert':
     features = res[0]
-if upstream_name == 'wav2vec2':
+elif upstream_name == 'wav2vec2':
     features = res['x']
+else:
+    raise NotImplementedError
     
 print(features.shape)
